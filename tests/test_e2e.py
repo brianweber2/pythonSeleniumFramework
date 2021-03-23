@@ -15,11 +15,8 @@ class TestOne(BaseClass):
 
     def test_e2e(self):
         home_page = HomePage(self.driver)
-        shop_page = ShopPage(self.driver)
-        checkout_page = CheckoutPage(self.driver)
-        purchase_page = PurchasePage(self.driver)
 
-        home_page.shop_items().click()
+        shop_page = home_page.shop_items()
 
         products = shop_page.get_products()
         for product in products:
@@ -27,8 +24,8 @@ class TestOne(BaseClass):
             if product_name == 'Blackberry':
                 shop_page.get_product_button(product).click()
 
-        shop_page.get_checkout_button().click()
-        checkout_page.checkout_items().click()
+        checkout_page = shop_page.get_checkout_button()
+        purchase_page = checkout_page.checkout_items()
         purchase_page.get_country_input().send_keys('ind')
         wait = WebDriverWait(self.driver, 7)
         wait.until(

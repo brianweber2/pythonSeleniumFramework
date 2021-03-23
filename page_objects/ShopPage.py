@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from page_objects.CheckoutPage import CheckoutPage
+
 
 class ShopPage:
     products = (By.XPATH, "//div[@class='card h-100']")
@@ -22,4 +24,5 @@ class ShopPage:
         return product.find_element(*ShopPage.product_button)
 
     def get_checkout_button(self):
-        return self.driver.find_element(*ShopPage.checkout_button)
+        self.driver.find_element(*ShopPage.checkout_button).click()
+        return CheckoutPage(self.driver)
