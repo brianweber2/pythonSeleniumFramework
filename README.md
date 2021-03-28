@@ -3,5 +3,5 @@
 Run tests by executing
 
 ```
-pytest --browser_name [chrome/firefox] tests/
+pytest --html=tests/report.html tests/ --browser_name chrome
 ```
