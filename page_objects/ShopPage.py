@@ -17,7 +17,7 @@ class ShopPage:
 
     @staticmethod
     def get_product_name(product):
-        return product.find_element(*ShopPage.product).text
+        return product.find_element(*ShopPage.product)
 
     @staticmethod
     def get_product_button(product):
